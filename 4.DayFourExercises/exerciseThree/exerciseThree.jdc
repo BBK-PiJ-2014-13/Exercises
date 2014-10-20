@@ -1,0 +1,32 @@
+print("Enter the total amount borrowed for a mortgage: ");
+double mortgage = Double.parseDouble(System.console().readLine());
+print("Enter the number of years to pay it back: ");
+double years = Double.parseDouble(System.console().readLine());
+print("Enter the interest rate: ");
+double interest = Double.parseDouble(System.console().readLine());
+
+println("Total amount to be paid is: " + totalAmountToBePaid(mortgage, years, interest));
+println("Amount to be paid each year is: " + amountToBePaidEveryYear(mortgage, years, interest));
+println("Amount to pay before the interest is paid: " + (amountToPayEachYear(mortgage, years, interest) / amountToPayForInterest(mortgage, years, interest)));
+
+
+
+double totalAmountToBePaid(double m, double y, double i) {
+	double output = m * (1 + i*y/100);
+	return output;
+}
+
+double amountToBePaidEveryYear(double m, double y, double i) {
+	double output = m * (i/100);
+	return output;
+}
+
+double amountToPayEachYear(double m, double y, double i) {
+	double output = totalAmountToBePaid(mortgage, years, interest) / y;
+	return output;
+}
+
+double amountToPayForInterest(double m, double y, double i) {
+	double output = totalAmountToBePaid(mortgage, years, interest) - mortgage;
+	return output;
+}

@@ -1,0 +1,1 @@
+println(pow(2,2));
